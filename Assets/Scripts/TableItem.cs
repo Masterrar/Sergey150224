@@ -8,14 +8,14 @@ using UnityEngine.UI;
 public class TableItem : MonoBehaviour
 {
     // DI
-    [SerializeField] public PreviewRenderController renderController;
+    [SerializeField] public TableController tableController;
     //
 
     
     public TableItemData Data;
     [SerializeField] private TextMeshProUGUI id;
     [SerializeField] private TextMeshProUGUI name;
-    [SerializeField] private GameObject viewTargetObject;
+    [SerializeField] public GameObject viewTargetObject;
     
     
     [SerializeField] private Button activateButton;
@@ -34,6 +34,6 @@ public class TableItem : MonoBehaviour
 
     public void Activate()
     {
-        renderController.Activate(viewTargetObject);
+        tableController.ClickTableItem(this);
     }
 }

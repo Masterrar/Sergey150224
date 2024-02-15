@@ -2,18 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using Utility;
 
 public class TableController : MonoBehaviour
 {
     [SerializeField] private List<TableItemData> Items = GetTableItemsInitList();
     private int lastId;
+    
+    [SerializeField] private Button addButton;
+    [SerializeField] private Button removeButton;
 
-    [SerializeField] private PreviewRenderController _renderController;
+    [SerializeField] private TableItem currentTableItem;
+
+    [SerializeField] private PreviewRenderController renderController;
     [SerializeField] private GameObject content;
     [SerializeField] private TableItem TableItemPrefab;
     public void Awake()
     {
+        addButton.onClick.AddListener(Add);
+        removeButton.onClick.AddListener(Remove);
         ReInitList(content, TableItemPrefab);
         lastId = Items.Max(e => e.id);
     }
@@ -35,24 +43,34 @@ public class TableController : MonoBehaviour
     public void AddToGameObject<T>(GameObject contentContainer, T prefab, TableItemData item) where T:TableItem
     {
         var gO = Instantiate(prefab, contentContainer.transform);
-        var model = _renderController.Models.SingleOrDefault(e => e.name == item.name);
+        var model = renderController.Models.SingleOrDefault(e => e.name == item.name);
         gO.Init(item, model);
-        gO.renderController = _renderController;
+        gO.tableController = this;
     }
     
     public void Add()
     {
-        var randomModel = GetRandomItemFromList(_renderController.Models);
+        var randomModel = GetRandomItemFromList(renderController.Models);
         lastId++;
         var newItem = new TableItemData(lastId, randomModel.name);
         Items.Add(newItem);
         
         AddToGameObject(content, TableItemPrefab, newItem);
     }
-    public void Remove(TableItem removeObject)
+    public void Remove()
     {
-        Items.Remove(removeObject.Data);
-        Destroy(removeObject);
+        if (currentTableItem != null)
+        {
+            Items.Remove(currentTableItem.Data);
+            Destroy(currentTableItem.gameObject);
+            currentTableItem = null;
+        }
+    }
+
+    public void ClickTableItem(TableItem tableItem)
+    {
+        currentTableItem = tableItem;
+        renderController.Activate(tableItem.viewTargetObject);
     }
     
     // Обычно в юнити делают просто открытый лист и добавляют туда, но тут просто решил так сделать, так быстрее

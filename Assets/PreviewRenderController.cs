@@ -12,10 +12,7 @@ public class PreviewRenderController : MonoBehaviour
     {
         get => models.Select(e => e).ToList();
     }
-    void Start()
-    {
-        
-    }
+
     public void Activate(GameObject activateModel)
     {
         if (currentActiveModel != activateModel)
@@ -25,6 +22,7 @@ public class PreviewRenderController : MonoBehaviour
             currentActiveModel = activateModel;
         }
     }
+    
 
     public void DeactivateAll()
     {
