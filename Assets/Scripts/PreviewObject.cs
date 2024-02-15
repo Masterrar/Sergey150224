@@ -5,14 +5,14 @@ using UnityEngine;
 public class PreviewObject : MonoBehaviour
 {
     [SerializeField] private float rotateAngle = 2.0f;
-    void Start()
+
+    private void Start()
     {
-        this.transform.Rotate(0,rotateAngle,0);
+        transform.Rotate(0, rotateAngle, 0);
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
 }

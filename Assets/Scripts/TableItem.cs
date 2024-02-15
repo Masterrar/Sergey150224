@@ -11,22 +11,23 @@ public class TableItem : MonoBehaviour
     [SerializeField] public TableController tableController;
     //
 
-    
+
     public TableItemData Data;
     [SerializeField] private TextMeshProUGUI id;
     [SerializeField] private TextMeshProUGUI name;
     [SerializeField] public GameObject viewTargetObject;
-    
-    
+
+
     [SerializeField] private Button activateButton;
 
     public void Init(TableItemData data, GameObject targetObject)
     {
-        this.Data = data;
-        this.id.text = Data.id.ToString();
-        this.name.text = Data.name;
-        this.viewTargetObject = targetObject;
+        Data = data;
+        id.text = Data.id.ToString();
+        name.text = Data.name;
+        viewTargetObject = targetObject;
     }
+
     public void Awake()
     {
         activateButton.onClick.AddListener(Activate);

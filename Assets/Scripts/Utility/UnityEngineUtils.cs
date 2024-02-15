@@ -6,10 +6,7 @@ namespace Utility
     {
         public static void DestroyChilds(this GameObject container)
         {
-            foreach (Transform child in container.transform)
-            {
-                GameObject.Destroy(child.gameObject);
-            }
+            foreach (Transform child in container.transform) Object.Destroy(child.gameObject);
         }
     }
 }

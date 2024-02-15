@@ -8,10 +8,7 @@ public class PreviewRenderController : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private List<GameObject> models;
     [SerializeField] private GameObject currentActiveModel;
-    public List<GameObject> Models
-    {
-        get => models.Select(e => e).ToList();
-    }
+    public List<GameObject> Models => models.Select(e => e).ToList();
 
     public void Activate(GameObject activateModel)
     {
@@ -22,11 +19,10 @@ public class PreviewRenderController : MonoBehaviour
             currentActiveModel = activateModel;
         }
     }
-    
+
 
     public void DeactivateAll()
     {
         models.ForEach(e => e.SetActive(false));
     }
-    
 }
