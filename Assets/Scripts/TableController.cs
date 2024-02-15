@@ -37,7 +37,10 @@ public class TableController : MonoBehaviour
     public void ReInitList<T>(GameObject contentContainer, T prefab) where T : TableItem
     {
         contentContainer.DestroyChilds();
-        foreach (var item in Items) AddToGameObject(content, prefab, item);
+        foreach (var item in Items)
+        {
+            AddToGameObject(content, prefab, item);
+        }
     }
 
     public void AddToGameObject<T>(GameObject contentContainer, T prefab, TableItemData item) where T : TableItem
