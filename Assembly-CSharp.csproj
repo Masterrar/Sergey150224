@@ -41,6 +41,8 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\PreviewObject.cs" />
+     <Compile Include="Assets\Scripts\PreviewRenderController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
@@ -77,8 +79,6 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
      <Compile Include="Assets\Scripts\TableController.cs" />
      <Compile Include="Assets\Scripts\TableItem.cs" />
-     <Compile Include="Assets\PreviewObject.cs" />
-     <Compile Include="Assets\PreviewRenderController.cs" />
      <Compile Include="Assets\Scripts\TableItemData.cs" />
      <Compile Include="Assets\Scripts\Utility\UnityEngineUtils.cs" />
      <Folder Include="Assets" />
@@ -120,7 +120,6 @@
      <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Prefabs" />
      <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Scenes" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-     <Folder Include="Assets\Scripts" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
@@ -900,6 +899,8 @@
      </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Scripts\PreviewObject.cs.meta" />
+    <Content Include="Assets\Scripts\PreviewRenderController.cs.meta" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
